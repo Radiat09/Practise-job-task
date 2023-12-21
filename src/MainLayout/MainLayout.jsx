@@ -2,6 +2,7 @@ import { Outlet } from "react-router-dom";
 import Navbar from "../shared/Navbar";
 import Sidebar from "../shared/Sidebar";
 import { useState } from "react";
+import Footer from "../shared/Footer";
 
 const MainLayout = () => {
   const [showSideBar, setShowSidebar] = useState(false);
@@ -18,6 +19,9 @@ const MainLayout = () => {
         </div>
       </div>
       <Outlet />
+      <div>
+        <Footer />
+      </div>
     </>
   );
 };
