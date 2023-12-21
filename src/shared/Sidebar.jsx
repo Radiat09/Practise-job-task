@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 const Sidebar = ({ setShowSidebar, showSideBar }) => {
   return (
     <div
@@ -11,4 +12,8 @@ const Sidebar = ({ setShowSidebar, showSideBar }) => {
   );
 };
 
+Sidebar.propTypes = {
+  setShowSidebar: PropTypes.func,
+  showSideBar: PropTypes.bool,
+};
 export default Sidebar;

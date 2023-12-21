@@ -1,18 +1,19 @@
 import { Link, NavLink } from "react-router-dom";
 // import useAuth from "../Hooks/useAuth/useAuth";
+import PropTypes from "prop-types";
 
 const Navbar = ({ setShowSidebar, showSideBar }) => {
   // const { user, logOut } = useAuth();
-  const darkMode = () => {
-    document.documentElement.setAttribute("data-theme", "light");
-  };
-  const lightMode = () => {
-    document.documentElement.setAttribute("data-theme", "dark");
-  };
-  const toggleTheme = (e) => {
-    if (e.target.checked) lightMode();
-    else darkMode();
-  };
+  // const darkMode = () => {
+  //   document.documentElement.setAttribute("data-theme", "light");
+  // };
+  // const lightMode = () => {
+  //   document.documentElement.setAttribute("data-theme", "dark");
+  // };
+  // const toggleTheme = (e) => {
+  //   if (e.target.checked) lightMode();
+  //   else darkMode();
+  // };
   // console.log(user);
   return (
     <div className="w-full px-[25px] flex justify-center items-center py-3">
@@ -78,4 +79,8 @@ const Navbar = ({ setShowSidebar, showSideBar }) => {
   );
 };
 
+Navbar.propTypes = {
+  setShowSidebar: PropTypes.func,
+  showSideBar: PropTypes.bool,
+};
 export default Navbar;
