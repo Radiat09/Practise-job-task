@@ -10,9 +10,9 @@ import {
   signOut,
   updateProfile,
 } from "firebase/auth";
-import { app } from "../config/firebase/firebase.config";
+import { app } from "../firebase/firebase.config";
 import PropTypes from "prop-types";
-import useAxiosPublic from "../Hooks/useAxiosPublic";
+// import useAxiosPublic from "../Hooks/useAxiosPublic";
 
 export const AuthContext = createContext(null);
 
@@ -21,7 +21,7 @@ const googleProvider = new GoogleAuthProvider();
 const githubProvider = new GithubAuthProvider();
 
 const AuthProvider = ({ children }) => {
-  const axiosPublic = useAxiosPublic();
+  // const axiosPublic = useAxiosPublic();
 
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -62,27 +62,27 @@ const AuthProvider = ({ children }) => {
       setUser(currUser);
       setLoading(false);
       console.log(currUser);
-      if (currUser) {
-        const userInfo = { email: currUser.email };
-        // console.log(userInfo);
-        axiosPublic.post("/jwt", userInfo).then((res) => {
-          console.log(res);
-          if (res.data.token) {
-            // console.log("access-token", res.data.token);
-            localStorage.setItem("access-token", res.data.token);
-            setLoading(false);
-          }
-        });
-      } else {
-        localStorage.removeItem("access-token");
-        setLoading(false);
-      }
+      // if (currUser) {
+      //   const userInfo = { email: currUser.email };
+      //   // console.log(userInfo);
+      //   axiosPublic.post("/jwt", userInfo).then((res) => {
+      //     console.log(res);
+      //     if (res.data.token) {
+      //       // console.log("access-token", res.data.token);
+      //       localStorage.setItem("access-token", res.data.token);
+      //       setLoading(false);
+      //     }
+      //   });
+      // } else {
+      //   localStorage.removeItem("access-token");
+      //   setLoading(false);
+      // }
 
       return () => {
         return unsubscribe();
       };
     });
-  }, [axiosPublic]);
+  }, []);
 
   const values = {
     user,

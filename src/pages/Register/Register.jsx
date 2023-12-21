@@ -1,6 +1,10 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
+import toast from "react-hot-toast";
 
 const Register = () => {
+  const { createUser } = useAuth();
+  const navigate = useNavigate();
   const handleRegisterSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -8,6 +12,22 @@ const Register = () => {
     const email = form.email.value;
     const password = form.password.value;
     console.log(username, email, password);
+    const toastId = toast.loading("Processing");
+    createUser(email, password)
+      .then((res) => {
+        // console.log(res.user);
+        navigate("/");
+        toast.success("Registration Successfull!", { id: toastId });
+        // const userInfo = {
+        //   username,
+        //   email,
+        //   role: "user",
+        //   banned: false,
+        // };
+      })
+      .catch((err) => {
+        toast.error(err.message);
+      });
   };
   return (
     <div className="bg-animate h-screen w-full">
