@@ -16,9 +16,9 @@ const Navbar = ({ setShowSidebar, showSideBar }) => {
   // };
   // console.log(user);
   return (
-    <div className="w-full px-[25px] flex justify-center items-center py-3">
+    <div className="w-full px-[25px] flex justify-center items-center border-b py-3">
       <div className="flex-none lg:hidden">
-        <label onClick={() => setShowSidebar(!showSideBar)} className="">
+        <label onClick={() => setShowSidebar(!showSideBar)} className="mr-2">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
