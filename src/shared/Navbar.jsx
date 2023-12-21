@@ -1,7 +1,7 @@
 import { Link, NavLink } from "react-router-dom";
 // import useAuth from "../Hooks/useAuth/useAuth";
 
-const Navbar = () => {
+const Navbar = ({ setShowSidebar, showSideBar }) => {
   // const { user, logOut } = useAuth();
   const darkMode = () => {
     document.documentElement.setAttribute("data-theme", "light");
@@ -17,7 +17,7 @@ const Navbar = () => {
   return (
     <div className="w-full px-[25px] flex justify-center items-center py-3">
       <div className="flex-none lg:hidden">
-        <label className="">
+        <label onClick={() => setShowSidebar(!showSideBar)} className="">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
