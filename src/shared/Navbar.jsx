@@ -36,7 +36,7 @@ const Navbar = ({ setShowSidebar, showSideBar }) => {
       </div>
       <div className="flex-1 text-4xl font-extrabold">
         <Link to="/">
-          My<span className="text-yellow-500">Tasks</span>
+          My<span className="text-emerald-500">Tasks</span>
         </Link>
       </div>
       {/* Navbar menu content here */}
@@ -45,8 +45,8 @@ const Navbar = ({ setShowSidebar, showSideBar }) => {
           to="/"
           className={({ isActive }) =>
             isActive
-              ? "text-yellow-500 font-bold"
-              : "text-gray-700 font-bold hover:text-yellow-500"
+              ? "text-emerald-500 font-bold transition-colors duration-500"
+              : "text-gray-700 font-bold hover:text-emerald-700 transition-colors duration-500"
           }
         >
           Home
@@ -56,8 +56,8 @@ const Navbar = ({ setShowSidebar, showSideBar }) => {
           to="/dashboard"
           className={({ isActive }) =>
             isActive
-              ? "text-yellow-500 font-bold  whitespace-nowrap"
-              : "text-gray-700 font-bold hover:text-yellow-500 whitespace-nowrap"
+              ? "text-emerald-500 font-bold  whitespace-nowrap transition-colors duration-500"
+              : "text-gray-700 font-bold hover:text-emerald-500 whitespace-nowrap transition-colors duration-500"
           }
         >
           Dashboard
@@ -68,7 +68,7 @@ const Navbar = ({ setShowSidebar, showSideBar }) => {
           <div className="flex items-center gap-4 ">
             <NavLink
               to="/login"
-              className="px-4 py-2 bg-yellow-600  hover:border-yellow-600 hover:bg-yellow-700 text-white hover:rounded-lg font-semibold transition-all duration-500 rounded-none"
+              className="px-4 py-2 bg-emerald-600  hover:border-emerald-600 hover:bg-emerald-700 text-white hover:rounded-lg font-semibold transition-all duration-500 rounded-none"
             >
               Let&apos;s Explore
             </NavLink>

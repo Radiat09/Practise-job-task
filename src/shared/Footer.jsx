@@ -6,7 +6,7 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto flex justify-between items-center py-4">
         <div className="flex justify-end text-4xl font-extrabold">
           <Link to="/">
-            My<span className="text-yellow-500">Tasks</span>
+            My<span className="text-emerald-500">Tasks</span>
           </Link>
         </div>
         <div className="flex justify-start gap-5 text-xl  font-bold">
