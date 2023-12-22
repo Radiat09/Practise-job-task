@@ -1,6 +1,40 @@
+import axios from "axios";
+import useAuth from "../../../hooks/useAuth";
+import toast from "react-hot-toast";
+
 const CreateTask = () => {
+  const { user } = useAuth();
   const handleCreateTask = (e) => {
     e.preventDefault();
+    const form = e.target;
+    const title = form.title.value;
+    const deadline = form.deadline.value;
+    const priority = form.priority.value;
+    const description = form.description.value;
+    const creationDate = new Date();
+    const taskData = {
+      title,
+      deadline,
+      priority,
+      description,
+      creationDate,
+      status: "ongoing",
+      email: user.email,
+    };
+    // console.log(taskData);
+    const taskId = toast.loading("Processing....");
+    axios
+      .post("http://localhost:9200/api/v1/tasks", taskData)
+      .then((res) => {
+        // console.log(res.data);
+        if (res.data.insertedId) {
+          toast.success("Task Created Succesfully!", { id: taskId });
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+        toast.error(err.message);
+      });
   };
   return (
     <div className="">
