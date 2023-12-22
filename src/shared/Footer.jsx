@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <>
-      <div className="max-w-7xl mx-auto flex justify-between items-center py-4">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-4 justify-between items-center py-4">
         <div className="flex justify-end text-4xl font-extrabold">
           <Link to="/">
             My<span className="text-emerald-500">Tasks</span>
